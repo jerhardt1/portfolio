@@ -1,59 +1,78 @@
 import React, { Component } from "react";
+import Typewriter from "typewriter-effect";
 import { HashLink } from "react-router-hash-link";
 
 class Landing extends Component {
-  state = {};
+  state = { typed: false };
+
+  fadeInWelcome = () => {
+    let name = "intro__name__welcome";
+    name = this.state.typed ? name + " opaque" : name;
+
+    return name;
+  };
+
+  fadeInButton = () => {
+    let name = "intro__box";
+    name = this.state.typed ? name + " opaque" : name;
+
+    return name;
+  };
+
   render() {
+    const text =
+      ' a <span style="color: white;">web dev</span> & <span style="color: white;">3D Artist</span>.';
     return (
       <section id="start">
         <div className="block">
-          <div className="intro"></div>
+          <div className="intro">
+            <div className="intro__name">
+              Hello! <br /> I am <br />
+              <span className={this.fadeInWelcome()}>Welcome!</span>
+              <div className="intro__professions">
+                <Typewriter
+                  options={{
+                    autoStart: true,
+                    loop: false,
+                    delay: 50,
+                  }}
+                  onInit={(typewriter) => {
+                    typewriter
+                      .pauseFor(2000)
+                      .typeString(text)
+                      .start()
+                      .pauseFor(200)
+                      .callFunction(() => {
+                        this.setState({ typed: true });
+                      });
+                  }}
+                />
+              </div>
+              Johann <br /> Erhardt.
+              <HashLink smooth to="#about" className="link">
+                <div className={this.fadeInButton()}>
+                  <span>
+                    This <br /> way! <br />
+                  </span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="64"
+                    height="64"
+                    fill="currentColor"
+                    class="bi bi-arrow-down-short"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"
+                    />
+                  </svg>
+                </div>
+              </HashLink>
+            </div>
+          </div>
         </div>
       </section>
-      // <section className="landing" id="start">
-      //   {/* <div className="landing__backdrop">PORTFOLIO</div> */}
-      //   <div className="block">
-      //     <div className="intro">
-      //       {/* <div class="background" src="/backdrop01.jpg" alt="" /> */}
-      //       <div className="intro__name">
-      //         <HashLink to="#about" smooth className="link">
-      //           <h1 className=" font font--soft">
-      //             Johann <br></br>Erhardt
-      //           </h1>
-      //         </HashLink>
-      //       </div>
-      //       <div className="intro__professions">
-      //         <HashLink smooth to="#projects" className="link">
-      //           <div className="intro__professions__first">
-      //             <h1 className="font">Web Dev</h1>
-      //           </div>
-      //         </HashLink>
-      //         <HashLink smooth to="#projects" className="link">
-      //           <div className="intro__professions__last">
-      //             <h1 className="font">3D Artist</h1>
-      //           </div>
-      //         </HashLink>
-      //       </div>
-      //     </div>
-      //     {/* <div className="block__arrow">
-      //       <HashLink smooth to="/#projects" className="link">
-      //         <svg
-      //           xmlns="http://www.w3.org/2000/svg"
-      //           width="64"
-      //           height="64"
-      //           fill="currentColor"
-      //           class="bi bi-arrow-bar-down"
-      //           viewBox="0 0 16 16"
-      //         >
-      //           <path
-      //             fill-rule="evenodd"
-      //             d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM8 6a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L7.5 12.293V6.5A.5.5 0 0 1 8 6z"
-      //           />
-      //         </svg>
-      //       </HashLink>
-      //     </div> */}
-      //   </div>
-      // </section>
     );
   }
 }

@@ -11,7 +11,10 @@ class Home extends Component {
   render() {
     return (
       <div className="content" id="container">
-        {/* <Landing></Landing>
+        <Landing />
+        <About />
+        <Projects />
+        {/* 
         <Projects></Projects>
         <About></About>
         <Contact></Contact> */}

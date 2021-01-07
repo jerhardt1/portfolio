@@ -11,37 +11,7 @@ class Projects extends Component {
     return (
       <section id="projects">
         <div className="block">
-          <div className="projects">
-            <div className="projects__dev">
-              <h3>Web Dev Projects</h3>
-              <ul className="projects__dev__images">
-                <li>
-                  <img src={buyshop} alt="" />
-                </li>
-                <li>
-                  <img src={buyshop} alt="" />
-                </li>
-              </ul>
-            </div>
-
-            <div className="projects__art">
-              <h3>3D Art Projects</h3>
-              <ul className="projects__art__images">
-                <li>
-                  <img src={art01} alt="" />
-                </li>
-                <li>
-                  <img src={art02} alt="" />
-                </li>
-                <li>
-                  <img src={art03} alt="" />
-                </li>
-                <li>
-                  <img src={art04} alt="" />
-                </li>
-              </ul>
-            </div>
-          </div>
+          <div className="projects"></div>
         </div>
       </section>
     );
