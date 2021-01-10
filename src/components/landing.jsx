@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Typewriter from "typewriter-effect";
 import { HashLink } from "react-router-hash-link";
+import Navbar from "./navbar";
 
 class Landing extends Component {
   state = { typed: false };
@@ -21,10 +22,12 @@ class Landing extends Component {
 
   render() {
     const text =
-      ' a <span style="color: white;">web dev</span> & <span style="color: white;">3D Artist</span>.';
+      ' a <span style="color: white;">web dev</span> & <span style="color: white;">3d artist</span>.';
     return (
       <section id="start">
         <div className="block">
+          <Navbar />
+
           <div className="intro">
             <div className="intro__name">
               Hello! <br /> I am <br />
@@ -49,7 +52,7 @@ class Landing extends Component {
                 />
               </div>
               Johann <br /> Erhardt.
-              <HashLink smooth to="#about" className="link">
+              <HashLink smooth to="#webDev" className="link">
                 <div className={this.fadeInButton()}>
                   <span>
                     This <br /> way! <br />

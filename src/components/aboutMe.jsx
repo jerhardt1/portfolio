@@ -1,46 +1,24 @@
 import React, { Component } from "react";
-import buyshop from "../assets/buyshop.png";
-import portfolio from "../assets/portfolio.png";
-import TagWall from "./tagWall";
-import { shuffle } from "../utils/shuffle";
+import me from "../assets/me.jpg";
 
-class About extends Component {
+class AboutMe extends Component {
   state = {};
-
   render() {
-    let tags = [
-      "HTML5",
-      "CSS3",
-      "SASS",
-      "BEM",
-      "jQuery",
-      "JavaScript",
-      "JSON",
-      "ReactJS",
-      "Python",
-      "Django",
-      "REST",
-      "Bootstrap",
-      "git",
-      "SourceTree",
-      "Heroku",
-      "NodeJS",
-      "npm",
-      "C#",
-    ];
-
-    tags = shuffle(tags);
     return (
-      <section className="about" id="webDev">
+      <section className="aboutMe" id="contact">
         <div className="block">
           <div className="block__aside">
+            {/* <div className="image_wrapper--round">
+              <img src={me} alt="" />
+            </div> */}
             <div className="text_block">
               <h1 className="text_block__header text_block__header--primary">
-                web development
+                about me
               </h1>
+
               <p className="text_block__text">
                 I currently focus on front end development with expertise in
-                HTML5, CSS3/SASS and JavaScript. ReactJS is my frontend
+                HTML5, CSS3/SASS and JavaSc ript. ReactJS is my frontend
                 framework of choice.
               </p>
               <p className="text_block__text">
@@ -49,13 +27,10 @@ class About extends Component {
                 in the future.
               </p>
             </div>
-            <TagWall tags={tags} />
           </div>
           <div className="block__content block__content--secondary">
             <div className="block__content__row">
-              <div className="image_wrapper">
-                <img src={buyshop} alt="buyshop" />
-              </div>
+              <div className="image_wrapper--round"></div>
               <div className="text_block">
                 <h1 className="text_block__header">e-commerce demo</h1>
                 <p className="text_block__text">
@@ -87,9 +62,7 @@ class About extends Component {
                   interesting ways to interact with the user.
                 </p>
               </div>
-              <div className="image_wrapper">
-                <img src={portfolio} alt="buyshop" />
-              </div>
+              <div className="image_wrapper"></div>
             </div>
           </div>
         </div>
@@ -98,20 +71,4 @@ class About extends Component {
   }
 }
 
-export default About;
-
-{
-  /* <p>
-          My fascination for programming sparked up since I got my first
-          computer with a stable internet connection. After that I joined
-          all the programming courses my schools had to offer. <br />
-          <br></br>
-          During my training as a Media Designer, I've been educated in
-          Frontend Development with knowledge in HTML, CSS and
-          Javascript/Jquery. After starting to develop my own scripts for
-          some programs with Python, I dived deeper into the world of web
-          development with the discovery of the django framework. I use
-          python and django for backend and REST APIs, whereas React is my
-          goto framework when it comes to the frontend.
-          </p> */
-}
+export default AboutMe;

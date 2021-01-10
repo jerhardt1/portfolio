@@ -4,6 +4,8 @@ import Landing from "./landing";
 import Projects from "./projects";
 import About from "./about";
 import Contact from "./contact";
+import AboutArt from "./aboutArt";
+import AboutMe from "./aboutMe";
 
 class Home extends Component {
   state = {};
@@ -13,11 +15,8 @@ class Home extends Component {
       <div className="content" id="container">
         <Landing />
         <About />
-        <Projects />
-        {/* 
-        <Projects></Projects>
-        <About></About>
-        <Contact></Contact> */}
+        <AboutArt />
+        <AboutMe />
       </div>
     );
   }
