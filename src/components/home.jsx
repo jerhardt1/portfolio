@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 
 import Landing from "./landing";
-import Projects from "./projects";
 import About from "./about";
-import Contact from "./contact";
 import AboutArt from "./aboutArt";
-import AboutMe from "./aboutMe";
+import Contact from "./contact";
 
 class Home extends Component {
   state = {};
@@ -16,7 +14,7 @@ class Home extends Component {
         <Landing />
         <About />
         <AboutArt />
-        <AboutMe />
+        <Contact />
       </div>
     );
   }

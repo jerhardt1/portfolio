@@ -81,11 +81,11 @@ class AboutArt extends Component {
           <div className="block__aside">
             <div className="text_block">
               <h1 className="text_block__header text_block__header--secondary">
-                3D Art
+                3d art
               </h1>
               <p className="text_block__text">
                 With a degree in Computer Games Art I heavily specialize in
-                realtime 3D Art for games or any other realtime environments
+                realtime 3d art for games or any other realtime environments
                 like Virtual/Augmented Reality.
               </p>
               <p className="text_block__text">

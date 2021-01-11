@@ -99,19 +99,3 @@ class About extends Component {
 }
 
 export default About;
-
-{
-  /* <p>
-          My fascination for programming sparked up since I got my first
-          computer with a stable internet connection. After that I joined
-          all the programming courses my schools had to offer. <br />
-          <br></br>
-          During my training as a Media Designer, I've been educated in
-          Frontend Development with knowledge in HTML, CSS and
-          Javascript/Jquery. After starting to develop my own scripts for
-          some programs with Python, I dived deeper into the world of web
-          development with the discovery of the django framework. I use
-          python and django for backend and REST APIs, whereas React is my
-          goto framework when it comes to the frontend.
-          </p> */
-}
