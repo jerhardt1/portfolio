@@ -1,83 +1,52 @@
 import React, { Component } from "react";
 import TagWall from "./tagWall";
-import { shuffle } from "../utils/shuffle";
-
-import art01 from "../assets/art01.jpg";
-
-import art02 from "../assets/art02.jpg";
-import art03 from "../assets/art03.jpg";
-import art04 from "../assets/art04.jpg";
-import art05 from "../assets/art05.jpg";
-import art06 from "../assets/art06.jpg";
-import art07 from "../assets/art07.jpg";
-import art08 from "../assets/art08.jpg";
-import art09 from "../assets/art09.jpg";
+import { shuffle } from "../utils/helpers";
+import { tagsArt, imagesArt } from "./../assets/data";
 
 class AboutArt extends Component {
   state = {};
-  render() {
-    let tags = [
-      "Maya",
-      "3Ds Max",
-      "Blender",
-      "Unity 3D",
-      "Unreal Engine 4",
-      "World Machine",
-      "Marvelous Designer",
-      "Photoshop",
-      "Illustrator",
-      "Substance",
-      "Modeling",
-      "Animation",
-      "Rigging",
-      "Texturing",
-      "Shaders",
-      "Technical Art",
-      "Scriping",
-      "ZBrush",
-      "Hard Surface",
-      "Characters",
-      "Sculpting",
-      "Low-/Highpoly",
-      "Baking",
-      "FX",
-    ];
 
+  handleClick = (link) => {
+    window.open(link);
+  };
+
+  render() {
+    let tags = tagsArt;
     tags = shuffle(tags);
+    const images = imagesArt;
+
+    const linkIcon = (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="currentColor"
+        class="bi bi-link-45deg"
+        viewBox="0 0 16 16"
+        className="grid__icon"
+      >
+        <path d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.001 1.001 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
+        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z" />
+      </svg>
+    );
     return (
       <section className="aboutArt" id="3dArt">
         <div className="block block--reverse">
           <div className="block__content block__content--primary">
             <div className="grid">
-              <div className="image_wrapper--grid">
-                <img src={art01} alt="" />
-              </div>
-              <div className="image_wrapper--grid">
-                <img src={art02} alt="" />
-              </div>
-              <div className="image_wrapper--grid">
-                <img src={art03} alt="" />
-              </div>
-              <div className="image_wrapper--grid">
-                <img src={art04} alt="" />
-              </div>
-              <div className="image_wrapper--grid">
-                <img src={art05} alt="" />
-              </div>
-              <div className="image_wrapper--grid">
-                <img src={art06} alt="" />
-              </div>
-              <div className="image_wrapper--grid">
-                <img src={art07} alt="" />
-              </div>
-              <div className="image_wrapper--grid">
-                <img src={art08} alt="" />
-              </div>
-              <div className="image_wrapper--grid">
-                <img src={art09} alt="" />
-              </div>
+              {images.map((image) => (
+                <div
+                  className="image_wrapper--grid"
+                  onClick={() => this.handleClick(image.link)}
+                >
+                  {" "}
+                  {linkIcon}
+                  <img src={image.image} alt="" />
+                </div>
+              ))}
             </div>
           </div>
+
           <div className="block__aside">
             <div className="text_block">
               <h1 className="text_block__header text_block__header--secondary">
@@ -92,6 +61,18 @@ class AboutArt extends Component {
                 My tasks span over modeling, texturing, rigging, animating and
                 optimizing assets. But also technical aspects like writing
                 shaders, scripts or logic in general are no problem.
+              </p>
+              <p className="text_block__text">
+                You can{" "}
+                <span
+                  className="hyperlink"
+                  onClick={() =>
+                    this.handleClick("https://www.artstation.com/johannerhardt")
+                  }
+                >
+                  click here
+                </span>{" "}
+                to view all of my public projects on arstation so far.
               </p>
             </div>
             <TagWall modifier="--secondary" tags={tags} />

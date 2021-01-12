@@ -121,6 +121,14 @@ h6 {
 .container {
   width: 100vw;
   height: 100vh;
+  position: relative;
+}
+
+.arrow_up {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  opacity: 50%;
 }
 
 .font {
@@ -165,7 +173,9 @@ h6 {
 .row {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin: 0px 20px;
 }
 
 .nav {
@@ -290,6 +300,15 @@ h6 {
   }
 }
 
+.hyperlink {
+  text-decoration: underline;
+  color: $color-primary;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .grid {
   display: grid;
   min-height: 100vh;
@@ -298,6 +317,17 @@ h6 {
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   justify-items: center;
+
+  div {
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: $color-tertiary;
+  }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -317,6 +347,10 @@ h6 {
   position: relative;
   margin: 20px;
   overflow-wrap: break-word;
+
+  &--only_margin_bottom {
+    margin-top: 0px;
+  }
   &__header {
     font-size: $font-xxl;
     color: $font-normal;
@@ -388,7 +422,7 @@ h6 {
     font-style: $font-style-1;
     text-indent: 10px;
     min-height: 40px;
-    min-width: 320px;
+    min-width: 280px;
     border-radius: 10px;
     border: 0;
   }
@@ -453,7 +487,7 @@ h6 {
         align-items: center;
         justify-content: space-around;
         min-height: 100vh;
-        margin: 0 40px;
+        margin: 0 20px;
 
         &--no_margin {
           margin: 0px;
@@ -519,6 +553,7 @@ h6 {
           flex-wrap: wrap;
           justify-content: center;
           align-items: center;
+          margin: 0 20px;
         }
       }
 

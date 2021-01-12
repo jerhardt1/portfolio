@@ -2,34 +2,16 @@ import React, { Component } from "react";
 import buyshop from "../assets/buyshop.png";
 import portfolio from "../assets/portfolio.png";
 import TagWall from "./tagWall";
-import { shuffle } from "../utils/shuffle";
+import { shuffle } from "../utils/helpers";
+import { tagsWeb } from "../assets/data";
 
 class About extends Component {
   state = {};
 
   render() {
-    let tags = [
-      "HTML5",
-      "CSS3",
-      "SASS",
-      "BEM",
-      "jQuery",
-      "JavaScript",
-      "JSON",
-      "ReactJS",
-      "Python",
-      "Django",
-      "REST",
-      "Bootstrap",
-      "git",
-      "SourceTree",
-      "Heroku",
-      "NodeJS",
-      "npm",
-      "C#",
-    ];
-
+    let tags = tagsWeb;
     tags = shuffle(tags);
+
     return (
       <section className="about" id="webDev">
         <div className="block">
@@ -39,14 +21,14 @@ class About extends Component {
                 web development
               </h1>
               <p className="text_block__text">
-                I currently focus on front end development with expertise in
+                I currently focus on frontend development with expertise in
                 HTML5, CSS3/SASS and JavaScript. ReactJS is my frontend
                 framework of choice.
               </p>
               <p className="text_block__text">
-                My skillset also includes back end knowledge in regards to
-                Python and Django. I plan on extending my knowledge in this area
-                in the future.
+                My skillset also includes backend knowledge in regards to python
+                and django. I plan on extending my knowledge in this area in the
+                future.
               </p>
             </div>
             <TagWall tags={tags} />
@@ -59,14 +41,14 @@ class About extends Component {
               <div className="text_block">
                 <h1 className="text_block__header">e-commerce demo</h1>
                 <p className="text_block__text">
-                  Goal of this project was to demonstrate some essential front
-                  end skills and implement classic functionalites that can be
-                  found on a typical e-commerce website.
+                  Goal of this project was to demonstrate some essential
+                  frontend skills and implement classic functionalites that can
+                  be found on a typical e-commerce website.
                 </p>
                 <p className="text_block__text">
                   As the design was not the primary concern, the site does not
                   behave in a responsive way yet. Nethertheless, the site
-                  includes the use of a self-made back end/REST api which serves
+                  includes the use of a self-made backend/REST api which serves
                   it's purpose, but still requires a lot of optimizations to be
                   made.
                 </p>

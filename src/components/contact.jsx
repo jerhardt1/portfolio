@@ -16,7 +16,7 @@ class Contact extends Component {
               <img src={me} alt="" />
             </div>
             <div className="row">
-              <div className="text_block">
+              <div className="text_block ">
                 <h1 className="text_block__header text_block__header--primary">
                   about me
                 </h1>
@@ -29,7 +29,7 @@ class Contact extends Component {
                   art.
                 </p>
               </div>
-              <div className="text_block__text">
+              <div className="text_block text_block--only_margin_bottom">
                 <p className="text_block__text">
                   Coding is a big passion of mine. In my freetime I try to work
                   on projects that I enjoy and constantly develop my skills and
