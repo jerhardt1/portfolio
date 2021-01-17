@@ -483,19 +483,21 @@ h6 {
 }
 
 .contact {
-  margin: 80px 20px;
+  min-width: 220px;
+  max-width: 90%;
+  margin: 80px 0;
 
   &__header {
     font-size: $font-xxl;
     color: $font-main;
-    margin: 10px 0;
+    margin-bottom: 10px;
+    line-height: 1em;
   }
 
   &__text {
     max-width: 390px;
     min-width: 220px;
     overflow-wrap: break-word;
-
     margin: 10px 0;
   }
 
@@ -514,11 +516,11 @@ h6 {
   &__form {
     display: flex;
     min-width: 220px;
+    max-width: 100%;
 
     flex-direction: column;
     * {
       margin: 10px 0;
-      // color: black;
     }
 
     &__status {
