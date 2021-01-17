@@ -15,7 +15,7 @@ $font-softer: rgb(119, 119, 119);
 $color-primary: #00bfff;
 $color-primary-disabled: #8de2ff;
 $color-secondary: #fa4d56;
-$color-tertiary: #18181875;
+$color-tertiary: hsla(0, 0%, 9%, 0.459);
 $color-tertiary-highlight: #5a5a5a75;
 
 $font-xs: 8px;
@@ -29,7 +29,7 @@ $font-style-1: "Archivo", sans-serif;
 $font-style-2: "Tangerine", cursive;
 $font-style-3: "Mulish", sans-serif;
 
-$background-color: rgb(57, 60, 65);
+$background-color: #393c41;
 
 @keyframes wave2 {
   0% {
@@ -483,7 +483,7 @@ h6 {
 }
 
 .contact {
-  margin-bottom: 80px;
+  margin: 80px 20px;
 
   &__header {
     font-size: $font-xxl;
@@ -493,6 +493,9 @@ h6 {
 
   &__text {
     max-width: 390px;
+    min-width: 220px;
+    overflow-wrap: break-word;
+
     margin: 10px 0;
   }
 
@@ -501,7 +504,7 @@ h6 {
     font-style: $font-style-1;
     text-indent: 10px;
     min-height: 40px;
-    min-width: 280px;
+    min-width: 200px;
     border-radius: 10px;
     border: 0;
     color: $font-dark;
@@ -510,6 +513,8 @@ h6 {
 
   &__form {
     display: flex;
+    min-width: 220px;
+
     flex-direction: column;
     * {
       margin: 10px 0;
@@ -531,7 +536,7 @@ h6 {
 
     &__error {
       background-color: $color-secondary;
-      min-width: 280px;
+      min-width: 200px;
       min-height: 40px;
       padding: 0 10px;
       border-radius: 5px;
