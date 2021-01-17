@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import TagWall from "./tagWall";
-import { shuffle } from "../utils/helpers";
+import { shuffle, openWeblink } from "../utils/helpers";
 import { tagsArt, imagesArt } from "./../assets/data";
+import Fade from "react-reveal/Fade";
+import RubberBand from "react-reveal/RubberBand";
 
 class AboutArt extends Component {
   state = {};
-
-  handleClick = (link) => {
-    window.open(link);
-  };
 
   render() {
     let tags = tagsArt;
@@ -31,52 +29,59 @@ class AboutArt extends Component {
     );
     return (
       <section className="aboutArt" id="3dArt">
-        <div className="block block--reverse">
-          <div className="block__content block__content--primary">
-            <div className="grid">
-              {images.map((image) => (
-                <div
-                  className="image_wrapper--grid"
-                  onClick={() => this.handleClick(image.link)}
-                >
-                  {" "}
-                  {linkIcon}
-                  <img src={image.image} alt="" />
-                </div>
-              ))}
+        <div className="block block--reverse block--wrap-reverse">
+          <Fade top>
+            <div className="block__content block__content--primary">
+              <div className="grid">
+                {images.map((image) => (
+                  <div
+                    className="image_wrapper--grid"
+                    onClick={() => openWeblink(image.link)}
+                  >
+                    {" "}
+                    {linkIcon}
+                    <img src={image.image} alt="" />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          </Fade>
 
-          <div className="block__aside">
-            <div className="text_block">
-              <h1 className="text_block__header text_block__header--secondary">
-                3d art
-              </h1>
-              <p className="text_block__text">
-                With a degree in Computer Games Art I heavily specialize in
-                realtime 3d art for games or any other realtime environments
-                like Virtual/Augmented Reality.
-              </p>
-              <p className="text_block__text">
-                My tasks span over modeling, texturing, rigging, animating and
-                optimizing assets. But also technical aspects like writing
-                shaders, scripts or logic in general are no problem.
-              </p>
-              <p className="text_block__text">
-                You can{" "}
-                <span
-                  className="hyperlink"
-                  onClick={() =>
-                    this.handleClick("https://www.artstation.com/johannerhardt")
-                  }
-                >
-                  click here
-                </span>{" "}
-                to view all of my public projects on arstation so far.
-              </p>
+          <Fade bottom>
+            <div className="block__aside">
+              <div className="text_block">
+                <RubberBand delay={700}>
+                  <h1 className="text_block__header text_block__header--secondary">
+                    3d art
+                  </h1>
+                </RubberBand>
+                <p className="text_block__text">
+                  With a degree in Computer Games Art I heavily specialize in
+                  realtime 3d art for games or any other realtime environments
+                  like Virtual/Augmented Reality.
+                </p>
+                <p className="text_block__text">
+                  My tasks span over modeling, texturing, rigging, animating and
+                  optimizing assets. But also technical aspects like writing
+                  shaders, scripts or logic in general are no problem.
+                </p>
+                <p className="text_block__text">
+                  You can{" "}
+                  <span
+                    className="hyperlink"
+                    onClick={() =>
+                      openWeblink("https://www.artstation.com/johannerhardt")
+                    }
+                  >
+                    click here
+                  </span>{" "}
+                  to view all of my public projects on arstation so far.
+                </p>
+              </div>
+
+              <TagWall modifier="--secondary" tags={tags} />
             </div>
-            <TagWall modifier="--secondary" tags={tags} />
-          </div>
+          </Fade>
         </div>
       </section>
     );

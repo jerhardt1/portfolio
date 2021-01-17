@@ -4,6 +4,11 @@ import Hole from "./hole";
 class TagWall extends Component {
   state = { holes: [] };
 
+  constructor(props) {
+    super(props);
+    this.explosion = React.createRef();
+  }
+
   componentDidMount = () => {
     window.addEventListener("resize", this.handleResize);
   };
@@ -19,14 +24,14 @@ class TagWall extends Component {
   spawnHole = (e) => {
     e.stopPropagation();
     const rect = e.target.getBoundingClientRect();
-    const { holes } = this.state;
+    const holes = [...this.state.holes];
     let newHoles = holes;
-    if (newHoles.length >= 200) {
+    if (newHoles.length >= 10) {
       newHoles.shift();
     }
     newHoles = newHoles.concat({
-      left: (e.clientX - rect.left - 20).toString() + "px",
-      top: (e.clientY - rect.top - 20).toString() + "px",
+      left: (e.clientX - rect.left - 40).toString() + "px",
+      top: (e.clientY - rect.top - 40).toString() + "px",
     });
 
     this.setState({ holes: newHoles });
@@ -45,7 +50,7 @@ class TagWall extends Component {
     let { tags } = this.props;
     const { holes } = this.state;
     return (
-      <div className="block__aside__tags" onClick={(e) => this.spawnHole(e)}>
+      <div className="block__aside__tags">
         {tags.map((tag) => (
           <div className={this.getClassName()}>{tag}</div>
         ))}

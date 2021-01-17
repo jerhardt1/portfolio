@@ -1,7 +1,13 @@
 import React, { Component } from "react";
+import Explosion from "./explosion";
 
 class Hole extends Component {
-  state = {};
+  state = { hover: false };
+
+  enter = () => {
+    console.log("enter");
+    this.setState({ hover: true });
+  };
 
   render() {
     const { holes } = this.props;
@@ -11,8 +17,10 @@ class Hole extends Component {
           <div
             className="circle"
             style={{ left: `${hole.left}`, top: `${hole.top}` }}
+            onMouseEnter={this.enter}
+            onMouseLeave={() => console.log("leave")}
           >
-            {" "}
+            {this.state.hover && <Explosion />}
           </div>
         ))}
       </React.Fragment>

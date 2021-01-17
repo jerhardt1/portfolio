@@ -4,12 +4,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo&display=swap");
 // https://fonts.google.com/specimen/Mulish?preview.text=Web%20Development&preview.text_type=custom&sidebar.open=true&selection.family=Mulish:wght@600;900
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@600;900&display=swap");
+// https://fonts.google.com/specimen/Romanesco?category=Handwriting&preview.text=skills&preview.text_type=custom&sidebar.open=true&selection.family=Romanesco
+@import url("https://fonts.googleapis.com/css2?family=Tangerine&display=swap");
 
-$font-main: white;
+$font-main: #ffffff;
+$font-dark: black;
 $font-soft: rgb(194, 194, 194);
 $font-softer: rgb(119, 119, 119);
 
 $color-primary: #00bfff;
+$color-primary-disabled: #8de2ff;
 $color-secondary: #fa4d56;
 $color-tertiary: #18181875;
 $color-tertiary-highlight: #5a5a5a75;
@@ -22,7 +26,7 @@ $font-xl: 32px;
 $font-xxl: 40px;
 
 $font-style-1: "Archivo", sans-serif;
-// $font-style-2: "Ubuntu", sans-serif;
+$font-style-2: "Tangerine", cursive;
 $font-style-3: "Mulish", sans-serif;
 
 $background-color: rgb(57, 60, 65);
@@ -131,6 +135,26 @@ h6 {
   opacity: 50%;
 }
 
+.skills {
+  h1 {
+    font-family: $font-style-2;
+    text-align: left;
+    font-weight: 50;
+    font-size: $font-xxl;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0)
+    );
+  }
+}
+
 .font {
   font-family: $font-style-3;
   font-size: $font-normal;
@@ -176,6 +200,21 @@ h6 {
   align-items: flex-end;
   flex-wrap: wrap;
   margin: 0px 20px;
+
+  &--space {
+    justify-content: space-between;
+  }
+
+  &--start {
+    justify-content: flex-start;
+  }
+
+  &--align-center {
+    align-items: center;
+    div {
+      margin: 0px;
+    }
+  }
 }
 
 .nav {
@@ -248,17 +287,15 @@ h6 {
   max-width: 440px;
   margin: 20px;
 
-  &--round {
+  &--large {
     display: flex;
     height: 75vh;
     max-width: 100%;
     align-self: flex-start;
-    justify-self: flex-start;
-    // margin: 20px;
+    margin-bottom: auto;
     img {
       width: 100%;
       object-fit: cover;
-      // border-radius: 50%;
     }
   }
 
@@ -317,6 +354,7 @@ h6 {
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   justify-items: center;
+  min-width: 450px;
 
   div {
     position: relative;
@@ -344,6 +382,7 @@ h6 {
 
 .text_block {
   max-width: 90%;
+  min-width: 220px;
   position: relative;
   margin: 20px;
   overflow-wrap: break-word;
@@ -375,12 +414,20 @@ h6 {
 
 .circle {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 80px;
+  height: 80px;
   padding: 20px;
   border-radius: 50%;
   background-color: $background-color;
   pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 140px;
+    height: 140px;
+  }
 
   &:hover {
     cursor: crosshair;
@@ -405,6 +452,36 @@ h6 {
   );
 }
 
+.pointer {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.platforms {
+  position: absolute;
+  display: flex;
+  bottom: 0px;
+  list-style: none;
+
+  &__item {
+    padding: 10px;
+    background-color: $color-tertiary;
+
+    &:hover {
+      background-color: $color-primary;
+    }
+  }
+}
+
+#message {
+  font-style: $font-style-1;
+  padding: 10px 10px;
+  font-size: $font-normal;
+  color: $font-dark;
+  text-indent: 0px;
+}
+
 .contact {
   &__header {
     font-size: $font-xxl;
@@ -425,6 +502,8 @@ h6 {
     min-width: 280px;
     border-radius: 10px;
     border: 0;
+    color: $font-dark;
+    font-size: $font-normal;
   }
 
   &__form {
@@ -432,7 +511,32 @@ h6 {
     flex-direction: column;
     * {
       margin: 10px 0;
-      color: black;
+      // color: black;
+    }
+
+    &__status {
+      background-color: $color-primary;
+      min-width: 50%;
+      min-height: 40px;
+      padding: 0 10px;
+      border-radius: 5px;
+      color: $font-main;
+
+      &--fail {
+        background-color: $color-secondary;
+      }
+    }
+
+    &__error {
+      background-color: $color-secondary;
+      min-width: 280px;
+      min-height: 40px;
+      padding: 0 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $font-main;
     }
 
     &__button {
@@ -442,16 +546,34 @@ h6 {
       color: $font-main;
       border-radius: 5px;
       border: 0;
+      margin-right: 20px;
+      font-size: $font-normal;
+
+      &:hover {
+        border: 1px solid white;
+        cursor: pointer;
+      }
+      &:disabled {
+        background-color: rgb(124, 124, 124);
+        &:hover {
+          border: 0;
+          cursor: default;
+        }
+      }
     }
   }
+}
+
+.wrap-reverse {
+  flex-wrap: wrap-reverse;
 }
 
 .content {
   height: 100vh;
   width: 100%;
   overflow-y: scroll;
-  scroll-snap-type: y proximity;
-  scroll-snap-stop: always;
+  // scroll-snap-type: y proximity;
+  // scroll-snap-stop: always;
 
   section {
     min-height: 100vh;
@@ -476,10 +598,13 @@ h6 {
         justify-content: flex-end;
       }
 
+      &--wrap-reverse {
+        flex-wrap: wrap-reverse;
+      }
+
       position: relative;
 
       &__aside {
-        min-width: 30%;
         display: flex;
         flex: 1;
         flex-direction: column;
@@ -533,7 +658,7 @@ h6 {
       &__content {
         min-width: 60%;
         display: flex;
-        flex: 1;
+        flex: 1.5;
         flex-direction: column;
         flex-wrap: wrap;
         align-items: center;

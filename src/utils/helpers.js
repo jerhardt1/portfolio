@@ -13,3 +13,7 @@ export const shuffle = (array) => {
   }
   return array;
 };
+
+export const openWeblink = (link) => {
+  window.open(link);
+};
